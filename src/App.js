@@ -2,22 +2,23 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Switch, Route } from 'react-router-dom';
-import HomePage from './Pages/HomePage'
-import LoginPage from './Pages/LoginPage'
-import RecipesPage from './Pages/RecipesPage'
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RecipesPage from './pages/RecipesPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
 
  render(){
   return (
     <Switch>
-      <Route exect path="/">
+      <Route exact path="/">
         <HomePage/>
       </Route>
-      <Route exect path="/login">
+      <Route exact path="/login">
         <LoginPage/>
       </Route>
-      <Route exect path="/recipes">
+      <Route exact path="/recipes">
         <RecipesPage/>
       </Route>
 
