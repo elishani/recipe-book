@@ -4,31 +4,54 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 class LoginPage extends Component {
+    constructor(props){
+        super(props);
+
+        this.state ={
+            email: "",
+            pwd: ""
+        }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.login = this.login.bind(this);
+    }
+
+    handleInputChange(event){
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+    login(){
+        alert(this.state.email + " " + this.state.pwd);
+    }
+
     render(){
+        const { email, pwd } = this.state;
         return(
-            <div>
-                <h1>Login Page</h1>
             <div className="p-login">
-                <div className="p-main">
-                    <h1>Login to Recipe Book</h1>
-                    <p>or <Link to="/signup">Create a new account</Link></p>
+                <div className="main">
                     <Form>
                         <Form.Group controlId="fromBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placholder="Enter email" />
+                            <Form.Control name="email" value={email}
+                            type="email" placeholder="Enter email" onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <Form.Group controlId="fromBasicEmail">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="email" placholder="Password" />
+                            <Form.Control name="pwd" value={pwd}
+                            type="password" placeholder="Password" onChange={this.handleInputChange} />
                         </Form.Group>
-                        <Button vriant="success" type="button" block>
+                        <Button vriant="success" type="button" block onClick={this.login}>
                             Login
                         </Button>
                     </Form>
                 </div>
             </div>
-        </div>
         );
     }
 }
