@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RecipesPage from './pages/RecipesPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import jsonUsers from ".data.users";
+import jsonUsers from "./data/users";
 
 class App extends React.Component {
 
