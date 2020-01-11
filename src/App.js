@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RecipesPage from './pages/RecipesPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import jsonUsers from ".data.users";
 
 class App extends React.Component {
 
@@ -12,12 +13,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      activeUser: null
+      activeUser: null,
+      allUsers: jsonUsers
     }
   }
 
  render(){
-   const { activeUser } = this.state;
+   const { activeUser, allUsers } = this.state;
 
   return (
     <Switch>
@@ -25,7 +27,7 @@ class App extends React.Component {
         <HomePage activeUser = {activeUser}/>
       </Route>
       <Route exact path="/login">
-        <LoginPage/>
+        <LoginPage allUsers={allUsers}/>
       </Route>
       <Route exact path="/recipes">
         <RecipesPage/>
